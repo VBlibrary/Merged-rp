@@ -39,8 +39,7 @@ jobs:
 
       - name: Fetch Build Matrix
         run: |
-          echo "build_matrix=$(yaml2json '${{ inputs.build_matrix_path }}' | jq -c .)" >> $GITHUB_ENV
-          yaml2json "${{ inputs.build_matrix_path }}" | jq
+          echo 'build_matrix=[{"board": "nice_nano_v2", "shield": "rgovision", "artifact-name": "rgovision-nice_nano_v2"}]' >> $GITHUB_ENV
 
   build:
     runs-on: ubuntu-latest
