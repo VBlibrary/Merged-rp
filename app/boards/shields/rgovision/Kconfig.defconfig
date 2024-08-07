@@ -1,5 +1,5 @@
 ## Copyright (c) 2022 ZMK Contributors
-# SPDX-License-Identifier: MIT
+## SPDX-License-Identifier: MIT
 if SHIELD_RGOVISION
 
 config ZMK_KEYBOARD_NAME
