@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Fetch Build Keyboards
     outputs:
-      build_matrix: ${{ env.build_matrix }}
+      build_matrix: ${{ steps.set_matrix.outputs.build_matrix }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,8 +38,9 @@ jobs:
         run: python3 -m pip install remarshal
 
       - name: Fetch Build Matrix
+        id: set_matrix
         run: |
-          echo 'build_matrix=[{"board": "nice_nano_v2", "shield": "rgovision", "artifact-name": "rgovision-nice_nano_v2"}]' >> $GITHUB_ENV
+          echo '::set-output name=build_matrix::[{"board": "nice_nano_v2", "shield": "rgovision", "artifact-name": "rgovision-nice_nano_v2"}]'
 
   build:
     runs-on: ubuntu-latest
@@ -179,3 +180,4 @@ jobs:
           name: ${{ inputs.archive_name }}
           pattern: artifact-*
           delete-merged: true
+
