@@ -28,7 +28,7 @@ jobs:
       matrix:
         include:
           - board: nice_nano_v2
-            shieldArgs: '[{"shield": "rgovision", "cmake-args": "", "nickname": ""}]'
+          - shield: rgovision
     steps:
       - name: Checkout
         uses: actions/checkout@v4
